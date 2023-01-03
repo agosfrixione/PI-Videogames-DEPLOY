@@ -3,15 +3,15 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_DEPLOY
+  DB_USER, DB_PASSWORD, DB_DEPLOY, DB_EXTERNAL
 } = process.env;
 
-// var sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
+// var sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_DEPLOY}/videogames`, {
 //   logging: false, // set to console.log to see the raw SQL queries
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
 
-var sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_DEPLOY}/videogames_ml66`, {
+var sequelize = new Sequelize(DB_EXTERNAL, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
